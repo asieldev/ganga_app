@@ -4,8 +4,8 @@
 App móvil (Android) para publicación de anuncios publicitarios. Desarrollada en RAD Studio Delphi 10.3. 
 
 ## Version 1.0
- > Aplicación Cliente.
- > Base de datos local(SQLite).
+ - Aplicación Cliente.
+ - Base de datos local(SQLite).
  > Componentes FireDAC.
  > Clase (TAnuncioList.pas). 
  > Clase (TServicioList.pas).

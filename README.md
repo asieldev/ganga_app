@@ -6,17 +6,17 @@ App móvil (Android) para publicación de anuncios publicitarios. Desarrollada e
 ## Version 1.0
  - Aplicación Cliente.
  - Base de datos local(SQLite).
- > Componentes FireDAC.
- > Clase (TAnuncioList.pas). 
- > Clase (TServicioList.pas).
- > Uso de IFMXVirtualKeyboardService.
- > Uso de IFMXApplicationEventService
- > Uso de TFloatAnimation
+ - Componentes FireDAC.
+ - Clase (TAnuncioList.pas). 
+ - Clase (TServicioList.pas).
+ - Uso de IFMXVirtualKeyboardService.
+ - Uso de IFMXApplicationEventService
+ - Uso de TFloatAnimation
  
  ## Version 1.1
-  > Version 1.0(All).
-  > Servidor DataSnap Rest(AWS).
-  > Base de datos PostgreSQL.
+  - Version 1.0(All).
+  - Servidor DataSnap Rest(AWS).
+  - Base de datos PostgreSQL.
   
   
  

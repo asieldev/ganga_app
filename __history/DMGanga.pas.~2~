@@ -1,0 +1,41 @@
+unit DMGanga;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Comp.Client,FireDAC.Phys.SQLite,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
+  FireDAC.Phys, FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs,
+  FireDAC.FMXUI.Wait, Data.DB, unit_Ani;
+
+type
+  TDM_Ganga = class(TDataModule)
+    FDConn: TFDConnection;
+    FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink;
+    procedure FDConnBeforeConnect(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DM_Ganga: TDM_Ganga;
+
+implementation
+
+{%CLASSGROUP 'FMX.Controls.TControl'}
+
+{$R *.dfm}
+
+procedure TDM_Ganga.FDConnBeforeConnect(Sender: TObject);
+begin
+   {$IFDEF ANDROID}
+      //DirPath:=TPath.Combine(TPath.GetSharedDocumentsPath,'assets');
+       FDConn.Params.Values['Database']:=TForm1.DirPath;
+
+  {$ENDIF}
+end;
+
+end.

@@ -1,0 +1,19 @@
+program Ganga ;
+
+uses
+  System.StartUpCopy,
+  FMX.Forms,
+  unit_Ani in 'unit_Ani.pas' {Form1},
+  DMGanga in 'DMGanga.pas' {dm_ganga: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.FormFactor.Orientations := [TFormOrientation.Portrait];
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(Tdm_ganga, dm_ganga);
+  Application.Run;
+end.
+
+

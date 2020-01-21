@@ -1,0 +1,5 @@
+.\assets\internal\arial.ttf
+.\assets\internal\Tw Cen MT.ttf
+.\assets\internal\Caviar Dreams.ttf
+.\assets\internal\Roboto Th.ttf
+.\assets\internal\setcorreo_basic.db

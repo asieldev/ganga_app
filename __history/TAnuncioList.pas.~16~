@@ -1,0 +1,187 @@
+unit TAnuncioList;
+
+interface
+  uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.Ani,
+  FMX.Objects, FMX.Layouts, FMX.Controls.Presentation, FMX.StdCtrls, FMX.FontGlyphs.Android,
+  FMX.TabControl, FMX.Memo, FMX.ScrollBox, System.Actions, FMX.ActnList,FMX.Effects,
+  System.ImageList, FMX.ImgList, FMX.Filter.Effects, FMX.ListBox;
+
+Type
+  TAnunciosList= class
+
+    private
+      YPosDown: Single;
+      YPosUp: Single;
+      idAnuncio: Integer;
+      lyParent: TLayout;
+      txtTitle: String;
+
+      txtBody: String;
+      txtPhone: String;
+      txtMail: String;
+      imgAnuncio: TBitmap;
+      ActionAnuncio: TAction;
+      tbParent: TTabControl;
+    var
+      AnuncioIMG: TImage;
+
+      procedure ClickEvent(Sender: TObject);
+      procedure Click_Leave(Sender: TObject);
+      procedure Click_Down(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Single);
+      procedure Click_Up(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Single);
+      procedure setTabAnuncio(Value: TTabControl);
+      procedure setTxtTitle(const Value: String);
+      procedure setTxtBody(const Value: String);
+
+      procedure setTxtPhone(const Value: String);
+      procedure setIdAnuncio(const Value: Integer);
+      procedure setTxtMail(const Value: String);
+      procedure setImgAnuncio(const Value: TBitmap);
+      procedure setActionAnuncio(const Value: TAction);
+
+
+    public
+
+      property TIdAnuncio: Integer read idAnuncio write setIdAnuncio;
+      property TtxtMail: String read txtMail write setTxtMail;
+      property TTxtTitle: String read txtTitle write setTxtTitle;
+      property TTxtPhone: String read txtPhone write setTxtPhone;
+      property TTxtBody: String read txtBody write setTxtBody;
+      property TImgAnuncio: TBitmap read imgAnuncio write setImgAnuncio;
+      property TTabControlAnuncio: TTabControl read tbParent write setTabAnuncio;
+      property TActionAnuncio: TAction read ActionAnuncio write setActionAnuncio;
+
+      constructor Create;
+      procedure AddAnuncio;
+
+  end;
+
+
+implementation
+
+procedure TAnunciosList.AddAnuncio;
+ var
+   TabAnuncio: TTabItem;
+
+ begin
+   if not Assigned(TabAnuncio) then
+     TabAnuncio:= TTabItem.Create(TabAnuncio);
+   TabAnuncio:= tbParent.Add();
+
+   AnuncioIMG:= TImage.Create(TabAnuncio);
+   AnuncioIMG.Parent:= TabAnuncio;
+   AnuncioIMG.Align:= TAlignLayout.Client;
+   AnuncioIMG.Bitmap:= imgAnuncio;
+   AnuncioIMG.WrapMode:=TImageWrapMode.Stretch;
+   AnuncioIMG.HitTest:= True;
+   AnuncioIMG.OnClick:= ClickEvent;
+   AnuncioIMG.OnMouseDown:= Click_Down;
+   AnuncioIMG.OnMouseLeave:= Click_Leave;
+   AnuncioIMG.OnMouseUp:= Click_Up;
+
+
+ end;
+
+ procedure TAnunciosList.Click_Down(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Single);
+begin
+  YPosDown:=X;
+  AnuncioIMG.Opacity:=0.7;
+end;
+
+
+procedure TAnunciosList.Click_Leave(Sender: TObject);
+begin
+   //YPosUp:= 0;
+   AnuncioIMG.Opacity:=1;
+end;
+
+procedure TAnunciosList.ClickEvent(Sender: TObject);
+begin
+   Application.ProcessMessages;
+ TThread.CreateAnonymousThread(procedure ()
+ Begin
+
+  TThread.Synchronize (TThread.CurrentThread,
+    procedure ()
+    begin
+       if (abs(YPosDown-YPosUp)<3.5)  then
+        begin
+         // ShowMessage('Servicios '+ (self.IdServ).ToString()+ YPosDown.ToString+ ' '+ YPosUp.ToString );
+          ActionAnuncio.Execute;
+        end
+       else
+        //
+
+    End);
+
+
+ End).Start;
+
+
+end;
+
+procedure TAnunciosList.Click_Up(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Single);
+begin
+   YPosUp:=X;
+   AnuncioIMG.Opacity:=1;
+end;
+
+constructor TAnunciosList.Create;
+ begin
+  //
+ end;
+
+
+
+procedure TAnunciosList.setActionAnuncio(const Value: TAction);
+begin
+  ActionAnuncio:= Value;
+end;
+
+
+
+procedure TAnunciosList.setIdAnuncio(const Value: Integer);
+begin
+  IdAnuncio:= Value;
+end;
+
+procedure TAnunciosList.setImgAnuncio(const Value: TBitmap);
+ begin
+   imgAnuncio:= Value;
+ end;
+
+
+
+
+
+procedure TAnunciosList.setTabAnuncio(Value: TTabControl);
+begin
+  tbParent:= Value;
+end;
+
+procedure TAnunciosList.setTxtBody(const Value: String);
+begin
+  txtBody:= Value;
+end;
+
+
+
+procedure TAnunciosList.setTxtMail(const Value: String);
+begin
+  txtMail:=Value;
+end;
+
+procedure TAnunciosList.setTxtPhone(const Value: String);
+begin
+    txtPhone:=Value;
+end;
+
+procedure TAnunciosList.setTxtTitle(const Value: String);
+begin
+  TxtTitle:=Value;
+end;
+
+
+end.

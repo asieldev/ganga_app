@@ -1,0 +1,22 @@
+object DM_Ganga: TDM_Ganga
+  OldCreateOrder = False
+  Height = 268
+  Width = 403
+  object FDConn: TFDConnection
+    Params.Strings = (
+      
+        'Database=G:\Proyectos\Emprendimiento\Correo\ASSS\DB_Lite\Asiel.d' +
+        'b'
+      'LockingMode=Normal'
+      'OpenMode=ReadWrite'
+      'DriverID=SQLite')
+    LoginPrompt = False
+    BeforeConnect = FDConnBeforeConnect
+    Left = 32
+    Top = 24
+  end
+  object FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink
+    Left = 136
+    Top = 24
+  end
+end

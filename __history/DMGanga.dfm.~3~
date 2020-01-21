@@ -1,0 +1,5 @@
+object dm_ganga: Tdm_ganga
+  OldCreateOrder = False
+  Height = 371
+  Width = 595
+end

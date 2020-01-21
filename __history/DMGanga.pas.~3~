@@ -1,0 +1,29 @@
+unit DMGanga;
+
+interface
+
+uses
+  System.SysUtils, System.Classes,Androidapi.JNI.JavaTypes;
+
+type
+  Tdm_ganga = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    Connect_DB: Boolean;
+    DirPath: String;
+    DirPath0: String;
+    vFile: JFile;
+  end;
+
+var
+  dm_ganga: Tdm_ganga;
+
+implementation
+
+{%CLASSGROUP 'FMX.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<ActiveMobileDevice>
-		<NoProfile Android="Asiel" iOSSimulator="iPhone5"/>
+		<NoProfile Android="AVD_for_Galaxy_Nexus" iOSSimulator="iPhone5"/>
 	</ActiveMobileDevice>
 </BorlandProject>

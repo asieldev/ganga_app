@@ -25,6 +25,6 @@ App móvil (Android) para publicación de anuncios publicitarios. Desarrollada e
   - Servidor REST Dataware (AWS).
   - Base de datos PostgreSQL.
     
-  ![alt text](https://github.com/asieldev/ganga_app/blob/master/GAnga.png)
+
   
  
